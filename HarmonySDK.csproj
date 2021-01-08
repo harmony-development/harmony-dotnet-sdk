@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>HarmonySDK</AssemblyName>
+    <RootNamespace>HarmonySDK</RootNamespace>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AsyncEvent" Version="0.2.1" />
+    <PackageReference Include="Google.Protobuf" Version="3.13.0" />
+    <PackageReference Include="Grpc.Core.Api" Version="2.34.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.34.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.34.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.34.0" PrivateAssets="all" />
+  </ItemGroup>
+  <PropertyGroup>
+    <Protobuf_NoWarnMissingExpected>true</Protobuf_NoWarnMissingExpected>
+  </PropertyGroup>
+  <ItemGroup>
+    <Protobuf Include="./protocol/*/*/*.proto" ProtoRoot="./protocol" GrpcServices="Client" />
+  </ItemGroup>
+</Project>
