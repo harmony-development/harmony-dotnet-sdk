@@ -24,5 +24,28 @@ namespace HarmonySDK
             var req = new DeleteMessageRequest { GuildId = guildId, ChannelId = channelId, MessageId = messageId, };
             await _chatService.DeleteMessageAsync(req, _defaultAuthMetadata);
         }
+
+        // todo: don't require before_message
+        public async Task<GetChannelMessagesResponse> GetChannelMessages(ulong guild_id, ulong channel_id, ulong before_message)
+        {
+            var req = new GetChannelMessagesRequest {
+                GuildId = guild_id,
+                ChannelId = channel_id,
+                BeforeMessage = before_message,
+            };
+            return await _chatService.GetChannelMessagesAsync(req, _defaultAuthMetadata);
+        }
+
+        public async Task TriggerAction(ulong guild_id, ulong channel_id, ulong message_id, string action_id, string action_data)
+        {
+            var req = new TriggerActionRequest {
+                GuildId = guild_id,
+                ChannelId = channel_id,
+                MessageId = message_id,
+                ActionId = action_id,
+                ActionData = action_data,
+            };
+            await _chatService.TriggerActionAsync(req, _defaultAuthMetadata);
+        }
     }
 }
