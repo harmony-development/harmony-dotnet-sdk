@@ -19,4 +19,10 @@
   <ItemGroup>
     <Protobuf Include="./protocol/*/*/*.proto" ProtoRoot="./protocol" GrpcServices="Client" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="examples/**" />
+    <Compile Remove="examples/**" />
+    <EmbeddedResource Remove="examples/**" />
+    <None Remove="examples/**" />
+  </ItemGroup>
 </Project>
