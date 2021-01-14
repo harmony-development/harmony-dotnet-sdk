@@ -2,7 +2,21 @@ name: Integration Tests
 on: [push, pull_request]
 
 jobs:
+  init:
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.ci-skip-step.outputs.ci-skip }}
+      skip-not: ${{ steps.ci-skip-step.outputs.ci-skip-not }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - id: ci-skip-step
+        uses: mstachniuk/ci-skip@master
+
   test:
+    needs: init
+    if: ${{ needs.init.outputs.skip == 'false' }}
     runs-on: ubuntu-latest
     services:
       postgres:
