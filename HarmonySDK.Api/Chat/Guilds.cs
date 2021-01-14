@@ -10,20 +10,27 @@ namespace HarmonySDK
     {
         public async Task<ulong> CreateGuild(string name, string picture_url = null)
         {
-            var req = new CreateGuildRequest { GuildName = name, PictureUrl = picture_url };
+            var req = new CreateGuildRequest { GuildName = name };
+            if (picture_url != null) req.PictureUrl = picture_url;
             var res = await _chatService.CreateGuildAsync(req, _defaultAuthMetadata);
             return res.GuildId;
         }
 
         public async Task ModifyGuild(ulong guild_id, string newName = null, string newPicture = null)
         {
-            var req = new UpdateGuildInformationRequest { 
+            var req = new UpdateGuildInformationRequest {
                 GuildId = guild_id,
-                NewGuildName = newName,
-                NewGuildPicture = newPicture,
             };
-            if (newName != null) req.UpdateGuildName = true;
-            if (newPicture != null) req.UpdateGuildPicture = true;
+            if (newName != null)
+            {
+                req.NewGuildName = newName;
+                req.UpdateGuildName = true;
+            }
+            if (newPicture != null)
+            {
+                req.NewGuildPicture = newPicture;
+                req.UpdateGuildPicture = true;
+            }
 
             await _chatService.UpdateGuildInformationAsync(req, _defaultAuthMetadata);
         }

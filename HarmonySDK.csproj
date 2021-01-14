@@ -25,4 +25,10 @@
     <EmbeddedResource Remove="examples/**" />
     <None Remove="examples/**" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="HarmonySDK.Tests/**" />
+    <Compile Remove="HarmonySDK.Tests/**" />
+    <EmbeddedResource Remove="HarmonySDK.Tests/**" />
+    <None Remove="HarmonySDK.Tests/**" />
+  </ItemGroup>
 </Project>

@@ -77,5 +77,7 @@ namespace HarmonySDK
             this.previous = previous;
             this.next = next;
         }
+
+        public ChannelPosition() {}
     }
 }

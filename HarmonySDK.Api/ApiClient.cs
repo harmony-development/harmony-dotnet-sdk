@@ -1,5 +1,4 @@
-using System.Threading.Tasks;
-
+using Grpc.Core;
 using Grpc.Net.Client;
 
 using Protocol.Chat.V1;
@@ -20,8 +19,8 @@ namespace HarmonySDK
             this._channel = GrpcChannel.ForAddress(this._homeserverURI);
             this._authToken = client._authToken;
 
-            this._defaultAuthMetadata = new Grpc.Core.Metadata{ {"auth", this._authToken} };
-            this._chatService = new Protocol.Chat.V1.ChatService.ChatServiceClient(this._channel);
+            this._defaultAuthMetadata = new Metadata{ {"auth", this._authToken} };
+            this._chatService = new ChatService.ChatServiceClient(this._channel);
         }
 
         public ApiClient(string homeserverURI, string authToken)
@@ -30,8 +29,8 @@ namespace HarmonySDK
             this._channel = GrpcChannel.ForAddress(this._homeserverURI);
             this._authToken = authToken;
 
-            this._defaultAuthMetadata = new Grpc.Core.Metadata{ {"auth", this._authToken} };
-            this._chatService = new Protocol.Chat.V1.ChatService.ChatServiceClient(this._channel);
+            this._defaultAuthMetadata = new Metadata{ {"auth", this._authToken} };
+            this._chatService = new ChatService.ChatServiceClient(this._channel);
         }
     }
 }

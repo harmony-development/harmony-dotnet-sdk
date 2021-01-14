@@ -7,15 +7,20 @@ namespace HarmonySDK
     public sealed partial class ApiClient
     {
         // TODO: support embeds, et al
-        public async Task<SendMessageResponse> CreateMessage(ulong guildId, ulong channelId, string content)
+        public async Task<ulong> CreateMessage(ulong guildId, ulong channelId, string content)
         {
             var req = new SendMessageRequest { GuildId = guildId, ChannelId = channelId, Content = content, };
-            return await _chatService.SendMessageAsync(req, _defaultAuthMetadata);
+            return (await _chatService.SendMessageAsync(req, _defaultAuthMetadata)).MessageId;
         }
 
-        public async Task UpdateMessage(ulong guildId, ulong channelId, string content)
+        public async Task UpdateMessage(ulong guildId, ulong channelId, ulong messageId, string newContent = null)
         {
-            var req = new UpdateMessageRequest { GuildId = guildId, ChannelId = channelId, Content = content, };
+            var req = new UpdateMessageRequest { GuildId = guildId, ChannelId = channelId, MessageId = messageId, };
+            if (newContent != null)
+            {
+                req.UpdateContent = true;
+                req.Content = newContent;
+            }
             await _chatService.UpdateMessageAsync(req, _defaultAuthMetadata);
         }
 
