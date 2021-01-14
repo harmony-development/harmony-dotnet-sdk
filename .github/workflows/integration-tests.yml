@@ -1,12 +1,5 @@
-name: Test with Legato
-on:
-  push:
-    branches:
-      - main
-      - test-with-legato
-  pull_request:
-    branches:
-      - main
+name: Integration Tests
+on: [push, pull_request]
 
 jobs:
   test:
@@ -36,6 +29,9 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: recursive
+    - uses: mstachniuk/ci-skip@v1
+      with:
+        fail-fast: true
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
     - name: Run tests
