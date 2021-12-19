@@ -1,0 +1,10 @@
+version: v1
+plugins:
+  - name: hrpc
+    out: gen/server
+    opt:
+      - csharp_server
+  - name: hrpc
+    out: gen/client
+    opt:
+      - csharp_client
