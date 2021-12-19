@@ -1,0 +1,12 @@
+/home/build/build/bin/Debug/net6.0/harmony-dotnet-sdk.deps.json
+/home/build/build/bin/Debug/net6.0/harmony-dotnet-sdk.dll
+/home/build/build/bin/Debug/net6.0/ref/harmony-dotnet-sdk.dll
+/home/build/build/bin/Debug/net6.0/harmony-dotnet-sdk.pdb
+/home/build/build/obj/Debug/net6.0/harmony-dotnet-sdk.csproj.AssemblyReference.cache
+/home/build/build/obj/Debug/net6.0/harmony-dotnet-sdk.GeneratedMSBuildEditorConfig.editorconfig
+/home/build/build/obj/Debug/net6.0/harmony-dotnet-sdk.AssemblyInfoInputs.cache
+/home/build/build/obj/Debug/net6.0/harmony-dotnet-sdk.AssemblyInfo.cs
+/home/build/build/obj/Debug/net6.0/harmony-dotnet-sdk.csproj.CoreCompileInputs.cache
+/home/build/build/obj/Debug/net6.0/harmony-dotnet-sdk.dll
+/home/build/build/obj/Debug/net6.0/ref/harmony-dotnet-sdk.dll
+/home/build/build/obj/Debug/net6.0/harmony-dotnet-sdk.pdb
