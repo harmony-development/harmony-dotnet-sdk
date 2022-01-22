@@ -16,6 +16,6 @@ See `build.sh`
 
 ## License
 
-The code used for generating the SDK (shell scripts, tool configs, etc) are licensed under the [unlicense](https://unlicense.org).
+The license for the code used for generating the SDK (shell scripts, tool configs, etc) is located in the `COPYING` file in this repository.
 
 The generated code is licensed under the same license as the protocol definition - please see the [licensing.md file in the protocol repo](https://github.com/harmony-development/protocol) for more details.
