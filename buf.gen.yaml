@@ -1,10 +1,14 @@
 version: v1
 plugins:
   - name: hrpc
-    out: gen/server
+    out: gen/Server
     opt:
       - csharp_server
   - name: hrpc
-    out: gen/client
+    out: gen/Client
     opt:
       - csharp_client
+  - name: csharp
+    out: gen/Types
+    opt:
+      - base_namespace=Protocol
